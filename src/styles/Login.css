@@ -1,0 +1,55 @@
+/* Login Page Styles */
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  .auth-input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+  .auth-button {
+    padding: 10px;
+    width: 300px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .auth-button:hover {
+    background-color: #218838;
+  }
+  
+  .switch-button {
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .switch-button:hover {
+    text-decoration: underline;
+  }
+  
+  p {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+  }
+  

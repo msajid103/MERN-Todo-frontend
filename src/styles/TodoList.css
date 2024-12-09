@@ -1,0 +1,171 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+  }
+  
+  /* Todo List Container */
+  .todo-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Todo Form */
+  .todo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .todo-form input,
+  .todo-form textarea {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    resize: vertical;
+  }
+  
+  .todo-form input:focus,
+  .todo-form textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  /* Add Todo Button */
+  .todo-button {
+    padding: 8px 16px; /* Smaller padding */
+    font-size: 14px; /* Smaller font size */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .todo-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Todo Table */
+  .todo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .todo-table th,
+  .todo-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .todo-table th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .todo-table td {
+    background-color: #f9f9f9;
+  }
+  
+  .todo-table tr:hover td {
+    background-color: #f1f1f1;
+  }
+  
+  .todo-table td .edit-icon,
+  .todo-table td .delete-icon {
+    font-size: 18px;
+    color: #4CAF50;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .todo-table td .delete-icon {
+    color: #f44336;
+  }
+  
+  .todo-table td .edit-icon:hover,
+  .todo-table td .delete-icon:hover {
+    opacity: 0.7;
+  }
+  
+  /* Logout Button */
+  .logout-button {
+    padding: 6px 12px; /* Smaller padding */
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px; /* Smaller font size */
+    width: auto;
+    margin-top: 20px;
+  }
+  
+  .logout-button:hover {
+    background-color: #e53935;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .todo-form input,
+    .todo-form textarea {
+      font-size: 14px;
+    }
+  
+    .todo-button,
+    .logout-button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  
+    .todo-table th,
+    .todo-table td {
+      font-size: 14px;
+    }
+  
+    .todo-table td .edit-icon,
+    .todo-table td .delete-icon {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .todo-container {
+      padding: 15px;
+    }
+  
+    .todo-form input,
+    .todo-form textarea {
+      font-size: 12px;
+    }
+  
+    .todo-button,
+    .logout-button {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+  
+    .todo-table th,
+    .todo-table td {
+      font-size: 12px;
+    }
+  }
+  
