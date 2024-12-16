@@ -9,7 +9,7 @@ const Login = ({ onLogin }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('http://localhost:5000/auth/login', {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -19,10 +19,10 @@ const Login = ({ onLogin }) => {
 
       const data = await response.json();
 
-      if (response.ok) {        
-        localStorage.setItem('token', data.token); 
+      if (response.ok) {
+        localStorage.setItem('token', data.token);
         onLogin();
-        navigate('/todos'); 
+        navigate('/todos');
       } else {
         alert(data.message || 'Invalid credentials');
       }

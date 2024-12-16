@@ -12,7 +12,7 @@ const TodoDetail = () => {
     // Fetch the todo details from the backend
     const fetchTodo = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/todos/${id}`);
+        const response = await fetch(`http://localhost:5000/api/todos/${id}`);
         if (!response.ok) {
           throw new Error('Todo not found');
         }

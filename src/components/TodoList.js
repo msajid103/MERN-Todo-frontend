@@ -18,7 +18,7 @@ const TodoList = ({ onLogout }) => {
   // Fetch todos from the backend API
   const fetchTodos = async () => {
     try {
-      const response = await fetch('http://localhost:5000/todos');
+      const response = await fetch('http://localhost:5000/api/todos');
       const data = await response.json();
       setTodos(data);
     } catch (error) {
@@ -34,7 +34,7 @@ const TodoList = ({ onLogout }) => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/todos', {
+      const response = await fetch('http://localhost:5000/api/todos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const TodoList = ({ onLogout }) => {
     if (!editId) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/todos/${editId}`, {
+      const response = await fetch(`http://localhost:5000/api/todos/${editId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ const TodoList = ({ onLogout }) => {
     if (!confirmDelete) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/todos/${id}`, {
+      const response = await fetch(`http://localhost:5000/api/todos/${id}`, {
         method: 'DELETE',
       });
 
