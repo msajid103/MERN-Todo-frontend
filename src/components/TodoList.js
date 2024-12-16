@@ -15,10 +15,17 @@ const TodoList = ({ onLogout }) => {
     fetchTodos();
   }, []);
 
-  // Fetch todos from the backend API
+ 
   const fetchTodos = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/todos');
+      console.log('token', localStorage.getItem('token'))
+      const response = await fetch('http://localhost:5000/api/todos',{
+        method:'GET',
+        headers:{
+        'Content-Type':'application/json',
+        'Authorization': localStorage.getItem('token')
+      }
+      });
       const data = await response.json();
       setTodos(data);
     } catch (error) {
@@ -38,6 +45,7 @@ const TodoList = ({ onLogout }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token') 
         },
         body: JSON.stringify({ title, description }),
       });
@@ -55,7 +63,7 @@ const TodoList = ({ onLogout }) => {
     }
   };
 
-  // Edit a todo
+
   const handleEditTodo = (id) => {
     const todo = todos.find((todo) => todo._id === id);
     setTitle(todo.title);
@@ -71,6 +79,7 @@ const TodoList = ({ onLogout }) => {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token') 
         },
         body: JSON.stringify({ title, description }),
       });
@@ -89,7 +98,7 @@ const TodoList = ({ onLogout }) => {
     }
   };
 
-  // Delete a todo
+
   const handleDeleteTodo = async (id) => {
     const confirmDelete = window.confirm('Are you sure you want to delete this todo?');
     if (!confirmDelete) return;
@@ -97,6 +106,10 @@ const TodoList = ({ onLogout }) => {
     try {
       const response = await fetch(`http://localhost:5000/api/todos/${id}`, {
         method: 'DELETE',
+        headers:{
+          'Content-Type':'application/json',
+          'Authorization':localStorage.getItem('token')
+        }
       });
 
       if (response.ok) {
@@ -144,6 +157,7 @@ const TodoList = ({ onLogout }) => {
         )}
       </div>
 
+      {todos.length > 0 ?(
       <table className="todo-table">
         <thead>
           <tr>
@@ -182,6 +196,9 @@ const TodoList = ({ onLogout }) => {
           ))}
         </tbody>
       </table>
+      ):(
+        <h3 style={{ textAlign: 'center', color: '#888' }}>No todo added yet.</h3>
+      )}
 
       <button onClick={handleLogout} className="logout-button">
         Logout

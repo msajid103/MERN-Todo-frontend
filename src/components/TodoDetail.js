@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import '../styles/TodoDetails.css'; // Optional: Add custom styles for the details page
+import '../styles/TodoDetails.css'; 
 
 const TodoDetail = () => {
-  const { id } = useParams(); // Get the dynamic id from the URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [todo, setTodo] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch the todo details from the backend
+   
     const fetchTodo = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/todos/${id}`);
+        const response = await fetch(`http://localhost:5000/api/todos/${id}`,{
+          method:'GET',
+          headers:{
+            'Content-Type':'application/json',
+            'Authorization':localStorage.getItem('token')
+          }
+        });
         if (!response.ok) {
           throw new Error('Todo not found');
         }
@@ -30,7 +36,7 @@ const TodoDetail = () => {
   }, [id]);
 
   const handleGoBack = () => {
-    navigate('/todos'); // Navigate back to the Todo List page
+    navigate('/todos');
   };
 
   if (loading) {
